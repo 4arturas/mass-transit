@@ -17,7 +17,7 @@ namespace GettingStarted
                 {
                     services.AddMassTransit(x =>
                     {
-                        x.AddConsumer<MessageConsumer>();
+                        x.AddConsumer<ThisIsARabbitMqQueueNameConsumer>();
 
                         x.UsingRabbitMq((context,cfg) =>
                         {

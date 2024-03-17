@@ -19,9 +19,12 @@ namespace GettingStarted
         {
             while (!stoppingToken.IsCancellationRequested)
             {
-                await _bus.Publish(new Message { Text = $"The time is {DateTimeOffset.Now}" }, stoppingToken);
+                string jSon = "{\"time\":\""+DateTimeOffset.Now+"\"}";
+                await _bus.Publish(new SomeData{ Id="1", Value = "Some Value"}, stoppingToken);
+                // await _bus.Publish(new Message { Text = jSon }, stoppingToken);
+                // await _bus.Publish(new Message { Text = $"The time is {DateTimeOffset.Now}" }, stoppingToken);
 
-                await Task.Delay(1000, stoppingToken);
+                await Task.Delay(5000, stoppingToken);
             }
         }
     }
